@@ -11,23 +11,26 @@ class Clicker extends Component
     // public function handleClick(){
     //     dump("clicked");
     // }
+
+    public $name;
+    public $email;
+    public $password;
+
+
     public function createNewUser(){
         User::create([
-            "name" => "Test User",
-            "email" => "test@test.com",
-            "password" => "password",
+            "name" => $this->name,
+            "email" => $this->email,
+            "password" => $this->password,
         ]);
     }
 
     public function render()
     {
 
-        $title = "Title";
-
         $users = User::all();
         
         return view('livewire.clicker', [
-            "title" => $title,
             "users" => $users,
         ]);
     }
