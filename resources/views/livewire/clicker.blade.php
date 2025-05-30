@@ -31,7 +31,17 @@
             <span class="text-red-500 text-xs">{{ $message }}</span>
         @enderror
 
+        @if ($image)
+            <image class="rounded w-10 h-10 mt-5" src="{{ $image->temporaryUrl() }}" />
+        @endif
+
+        <div wire:loading wire:target='image'>
+            <span class="text-green-500">Uploading...</span>
+        </div>
+
         <button class="block rounded px-3 py-1 bg-gray-400 text-white">Create</button>
+
+
     </form>
 
     <hr>
