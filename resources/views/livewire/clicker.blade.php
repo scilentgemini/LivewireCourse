@@ -11,22 +11,26 @@
         <span class="px-3 py-3 bg-green-600 text-white rounded">{{ session('success') }}</span>
     @endif
     <form wire:submit='createNewUser' action="">
-        <input class="block rounded border border-gray-100 px-3 py-1 mt-2" wire:model="name" type="text" placeholder="Name">
+        <input class="block rounded border border-gray-100 px-3 py-1 mt-2" wire:model="name" type="text"
+            placeholder="Name">
         @error('name')
             <span class="text-red-500 text-xs">{{ $message }}</span>
         @enderror
 
-        <input class="block rounded border border-gray-100 px-3 py-1 mt-2" wire:model="email" type="text" placeholder="Email">
+        <input class="block rounded border border-gray-100 px-3 py-1 mt-2" wire:model="email" type="text"
+            placeholder="Email">
         @error('email')
             <span class="text-red-500 text-xs">{{ $message }}</span>
         @enderror
 
-        <input class="block rounded border border-gray-100 px-3 py-1 mt-2" wire:model="password" type="password" placeholder="Password">
+        <input class="block rounded border border-gray-100 px-3 py-1 mt-2" wire:model="password" type="password"
+            placeholder="Password">
         @error('password')
             <span class="text-red-500 text-xs">{{ $message }}</span>
         @enderror
 
-        <input class="block rounded border border-gray-500 px-3 py-1 mt-2" wire:model='image' type="file" id="image" accept="image/png, image/jpeg">
+        <input class="block rounded border border-gray-500 px-3 py-1 mt-2" wire:model='image' type="file"
+            id="image" accept="image/png, image/jpeg">
         @error('image')
             <span class="text-red-500 text-xs">{{ $message }}</span>
         @enderror
@@ -39,7 +43,11 @@
             <span class="text-green-500">Uploading...</span>
         </div>
 
-        <button class="block rounded px-3 py-1 bg-gray-400 text-white">Create</button>
+        <div wire:loading.delay>
+            <span>Creating...</span>
+        </div>
+
+        <button wire:loading.class='bg-purple-400' wire:loading.attr='disabled' class="block rounded px-3 py-1 bg-teal-400 text-white">Create+</button>
 
 
     </form>
