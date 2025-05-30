@@ -26,6 +26,11 @@
             <span class="text-red-500 text-xs">{{ $message }}</span>
         @enderror
 
+        <input class="block rounded border border-gray-500 px-3 py-1 mt-2" wire:model='image' type="file" id="image" accept="image/png, image/jpeg">
+        @error('image')
+            <span class="text-red-500 text-xs">{{ $message }}</span>
+        @enderror
+
         <button class="block rounded px-3 py-1 bg-gray-400 text-white">Create</button>
     </form>
 
