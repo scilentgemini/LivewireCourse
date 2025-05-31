@@ -51,8 +51,6 @@ class Clicker extends Component
         // $users = User::all();
         $users = User::paginate(3);
         
-        return view('livewire.clicker', [
-            "users" => $users,
-        ]);
+        return view('livewire.clicker');
     }
 }
